@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#601EF9">
-    <meta name="description" content="Welcome to the Quadratic Equations Guide an open-source guide to understanding and solving quadratic equations with ease!">
+    <meta name="description"
+        content="Welcome to the Quadratic Equations Guide an open-source guide to understanding and solving quadratic equations with ease!">
     <meta name="author" content="Charisios Charisiadis">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="https://jsxgraph.org/distrib/jsxgraphcore.js"></script>
+    <link rel="stylesheet" href="https://jsxgraph.org/distrib/jsxgraph.css" />
     <title>Quadratic Equations Guide</title>
 </head>
+
 <body>
     <center>
         <!-- Introduction-->
@@ -18,11 +23,169 @@
         <hr>
         <!-- What is a Quadratic Equation? -->
         <h2>What is a Quadratic Equation?</h2>
-        <p>A quadratic equation is a polynomial equation of the second degree, written in the 
-            standard form as $$ax^2 + bx + c = 0$$ where \(a \), \(b \), and \(c \) are constants and \(x \) is the variable.
+        <p>A quadratic equation is a polynomial equation of the second degree, written in the
+            standard form as $$ax^2 + bx + c = 0$$ where \(a \), \(b \), and \(c \) are constants and \(x \) is the
+            variable.
 
         </p>
-        
+        <hr>
+        <!-- Methods to Solve Quadratic Equations -->
+        <h2>Methods to Solve Quadratic Equations</h2>
+        <!-- Using the Quadratic Formula -->
+        <h3> Using the Quadratic Formula</h3>
+        <p>The quadratic formula is a powerful tool for solving any quadratic equation. It is given by:</p>
+        $$x = \frac{-b \pm \sqrt{Δ}}{2a}$$
+        <p>Where \(a\), \(b\), and \(c\) are the coefficients from the standard form of the quadratic equation.</p>
+        <!-- Explaining Δ -->
+        <p>The discriminant \(Δ = b^2 - 4ac\) determines the nature of the roots:</p>
+        <table>
+            <tr>
+                <th>Condition</th>
+                <th>Nature of Roots</th>
+            </tr>
+            <tr>
+                <td>If \(Δ > 0\)</td>
+                <td>Two distinct real roots</td>
+            </tr>
+            <tr>
+                <td>If \(Δ = 0\)</td>
+                <td>Exactly one real root (a repeated root)</td>
+            </tr>
+            <tr>
+                <td>If \(Δ < 0\)</td>
+                <td>No real roots (the roots are complex)</td>
+            </tr>
+        </table>
+        <p>Finding the discriminant \(Δ = b^2 - 4ac\) is crucial for determining the nature of the roots of a quadratic
+            equation.</p>
+        <p>After finding the discriminant, substitute it into the quadratic formula to solve for the roots.</p>
+        <p>Depending on the value of the discriminant, the quadratic equation may have two distinct real roots, one
+            repeated real root, or no real roots (complex roots).</p>
+        <p>Solving for roots has 2 types of formulas depending on whether the discriminant is \(Δ > 0\) or \(Δ = 0\)
+            else \(Δ < 0\) is not possible for \(\mathbb{R}\).</p>
+                <h3>Formulas for Roots Based on Discriminant</h3>
+                <table>
+                    <tr>
+                        <th>Condition</th>
+                        <th>Formula for Roots</th>
+                    </tr>
+                    <tr>
+                        <td>If \(Δ > 0\)</td>
+                        <td>$$x_1 = \frac{-b + \sqrt{Δ}}{2a}, \quad x_2 = \frac{-b - \sqrt{Δ}}{2a}$$</td>
+                    </tr>
+                    <tr>
+                        <td>If \(Δ = 0\)</td>
+                        <td>$$x = \frac{-b}{2a}$$</td>
+                    </tr>
+                    <tr>
+                        <td>If \(Δ < 0\)</td>
+                        <td>No real roots for \(\mathbb{R}\)</td>
+                    </tr>
+                </table>
+                <h2>Examples</h2>
+                <hr>
+                <h3>Example 1: One Real Root</h3>
+                <p>Consider the quadratic equation \(2x^2 + 4x + 2 = 0\).</p>
+                <p>Here, \(a = 2\), \(b = 4\), and \(c = 2\).</p>
+                <p>The discriminant is:</p>
+                $$Δ = b^2 - 4ac = 16 - 16 = 0$$
+                <p>Since the discriminant is zero, there is exactly one real root:</p>
+                $$x = \frac{-b}{2a} = \frac{-4}{4} = -1$$
+                <h2>Visualization</h2>
+                <div id="jxgbox" style="width:500px; height:500px; margin: 20px auto;"></div>
+                <script>
+                    const board = JXG.JSXGraph.initBoard('jxgbox', {
+                        boundingbox: [-5, 10, 5, -5],
+                        axis: true,
+                        grid: true
+                    });
+
+                    // Graph the quadratic equation 2x^2 + 4x + 2 = 0
+                    const curve = board.create('functiongraph', [
+                        function (x) { return 2 * x * x + 4 * x + 2; }
+                    ], { strokeColor: '#601EF9', strokeWidth: 2 });
+
+                    // Mark the root at x = -1
+                    const root = board.create('point', [-1, 0], {
+                        name: 'x = -1',
+                        color: '#FF6B6B',
+                        size: 5
+                    });
+                </script>
+                <hr>
+                <h3>Example 2: Two Distinct Real Roots</h3>
+                <p>Consider the quadratic equation \(x^2 - 5x + 6 = 0\).</p>
+                <p>Here, \(a = 1\), \(b = -5\), and \(c = 6\).</p>
+                <p>The discriminant is:</p>
+                $$Δ = b^2 - 4ac = 25 - 24 = 1$$
+                <p>Since the discriminant is positive, there are two distinct real roots:</p>
+                $$x_1 = \frac{5 + \sqrt{1}}{2} = \frac{5 + 1}{2} = 3$$
+                $$x_2 = \frac{5 - \sqrt{1}}{2} = \frac{5 - 1}{2} = 2$$
+                <div id="jxgbox2" style="width:500px; height:500px; margin: 20px auto;"></div>
+                <script>
+                    const board2 = JXG.JSXGraph.initBoard('jxgbox2', {
+                        boundingbox: [-1, 10, 6, -5],
+                        axis: true,
+                        grid: true
+                    });
+
+                    // Graph the quadratic equation x^2 - 5x + 6 = 0
+                    const curve2 = board2.create('functiongraph', [
+                        function (x) { return x * x - 5 * x + 6; }
+                    ], { strokeColor: '#601EF9', strokeWidth: 2 });
+
+                    // Mark the roots at x = 2 and x = 3
+                    const root1 = board2.create('point', [2, 0], {
+                        name: 'x = 2',
+                        color: '#FF6B6B',
+                        size: 5
+                    });
+
+                    const root2 = board2.create('point', [3, 0], {
+                        name: 'x = 3',
+                        color: '#FF6B6B',
+                        size: 5
+                    });
+                </script>
+                <hr>
+                <h3>Example 3: No Real Roots</h3>
+                <p>Consider the quadratic equation \(x^2 + 1 = 0\).</p>
+                <p>Here, \(a = 1\), \(b = 0\), and \(c = 1\).</p>
+                <p>The discriminant is:</p>
+                $$Δ = b^2 - 4ac = 0 - 4 = -4$$
+                <p>Since the discriminant is negative, there are no real roots (the roots are complex):</p>
+                <p>No real roots exist for \(\mathbb{R}\) in the equation \(x^2 + 1 = 0\).</p>
+                <!-- Excercises -->
+                 <hr>
+                <h2>Exercises</h2>
+                <p>Try solving the following quadratic equations:</p>
+                <ol>
+                    <li>\(x^2 - 4x + 4 = 0\)</li>
+                    <li>\(x^2 - 3x + 2 = 0\)</li>
+                    <li>\(x^2 + x + 1 = 0\)</li>
+                    <li>\(2x^2 + 3x + 1 = 0\)</li>
+                    <li>\(x^2 - 7x + 10 = 0\)</li>
+                    <li>\(3x^2 - 6x + 3 = 0\)</li>
+                    <li>\(x^2 - 9 = 0\)</li>
+                    <li>\(4x^2 - 4x + 1 = 0\)</li>
+                    <li>\(x^2 + 2x + 5 = 0\)</li>
+                </ol>
+                <hr>
+                <h2>Conclusion</h2>
+                <p>Remember that the quadratic formula can be used to solve any quadratic equation, regardless of whether the
+                    coefficients are real or complex. However, the nature of the roots will depend on the discriminant as
+                    explained above.</p>
+                    <hr>
+                <h2>The End</h2>
+                <p>Thank you for reading this guide on quadratic equations! I hope it has helped you understand how to solve
+                    them with ease. If you have any questions or suggestions for improvement, feel free to reach out or
+                    contribute to the project on GitHub.</p>
     </center>
+    <footer>
+        <p>Made with ❤️ by Charisios. Licensed under the <a
+                href="https://github.com/charisios10/qequation/blob/main/LICENSE">MIT License</a> on <a
+                href="https://github.com/charisios10/qequation">GitHub</a>.</p>
+    </footer>
 </body>
+
 </html>
