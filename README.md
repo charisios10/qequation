@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to the **Quadratic Equation Solver** – an open-source guide to understanding and solving quadratic equations with ease!
+Welcome to the **Quadratic Equations Guide** – an open-source guide to understanding and solving quadratic equations with ease!
 
 ## What is a Quadratic Equation?
 
@@ -24,7 +24,7 @@ The most reliable method for solving any quadratic equation:
 x = (-b ± √(b² - 4ac)) / 2a
 ```
 
-### 2. **Factoring** 🎯
+### 2. **Factoring (Soon...)** 🎯 
 
 Break down the equation into two linear factors and solve.
 
